@@ -38,6 +38,9 @@ function World(){
 		for(var i = 0;i<this.eArray.length;i++){
 			this.eArray[i].draw(ctx);
 		}
+		for(var j = 0;j<this.bArray.length;j++){
+			this.bArray[j].draw(ctx);
+		}
 	}).bind(this);
     
     
