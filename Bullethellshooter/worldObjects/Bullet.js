@@ -1,15 +1,19 @@
-function Bullet(mx,my,world){
+function Bullet(ax,ay,atx,aty){
     Entitity.call(this)
-	this.mx = mx
-	this.my = my
+	
+	this.tx = atx;
+	this.ty = aty;
+	
+	this.x = ax;
+	this.y = ay;
+	
+	
+	
 	this.draw = (function(ctx){
 		ctx.fillStyle = "green"
 		ctx.fillCircle(this.x,this.y,this.rad);
 	}).bind(this)
-	this.rx = world.player.x
-	this.x = world.player.x
-	this.ry = world.player.y
-	this.y = world.player.y
+	
 	
 	this.superupdate = this.update;
 	this.update = (function(timeDiff){
@@ -22,5 +26,6 @@ function Bullet(mx,my,world){
 		this.xs += dx;
 		this.ys += dy;
 		this.superupdate();
-	}).bind(this)
+	}).bind(this);
+	
 }
