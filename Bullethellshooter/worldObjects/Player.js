@@ -1,7 +1,8 @@
-function Player(){
-    Entitity.call(this)
+function Player(aworld){
+    Entitity.call(this,aworld)
 	this.x = 400;
 	this.y = 400;
+	this.counter = 10;
 	this.draw = (function(ctx){
 		ctx.fillStyle = "red"
 		ctx.fillCircle(this.x,this.y,10);
@@ -22,8 +23,16 @@ function Player(){
 			this.ys += acc;
 		}
 		if(isButtonDown(0)){
-			var test = new Bullet(world.player.x,world.player.y,mouseX,mouseY);
-			world.addEntity(test);
+			this.counter++;
+			if (this.counter>15){
+				this.counter = 0;
+				for(var i=0;i<5;i++){	
+					var test = new Bullet(this.world,this.world.player.x,this.world.player.y,mouseX,mouseY);
+					this.world.addEntity(test);
+				}
+			}
+		}else{
+		this.counter = 15
 		}
 		this.superupdate();
 	}).bind(this)	

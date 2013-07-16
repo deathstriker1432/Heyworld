@@ -21,6 +21,6 @@ function Entitity(aworld){
 	
 	}).bind(this)
 	this.die = (function(){
-		world.removeEntity(this);
+		this.world.removeEntity(this);
 	}).bind(this);
 }

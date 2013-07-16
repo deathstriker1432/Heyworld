@@ -11,7 +11,7 @@ var world = new World();
 for(i=0;i<5;i++){
 	var j=0
 	for(j=0;j<5;j++){
-		var temp = new Enemy();
+		var temp = new Enemy(world);
 		world.addEntity(temp);
 		temp.rad = 15;
 		temp.x = temp.rad*2.2*i+55;
@@ -19,6 +19,9 @@ for(i=0;i<5;i++){
 		
 	}
 }
+var mouseX=350;
+var mouseY=350;
+
 canvas.addEventListener("mousemove",function(e){
 	mouseX = e.offsetX;
 	mouseY = e.offsetY;

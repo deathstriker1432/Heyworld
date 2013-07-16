@@ -1,11 +1,11 @@
-function Enemy(){
-    Entitity.call(this)
+function Enemy(aworld){
+    Entitity.call(this,aworld)
 	this.draw = (function(ctx){
 		ctx.fillStyle = "blue"
 		ctx.fillCircle(this.x,this.y,this.rad);
 	}).bind(this)
 	this.superupdate = this.update;
-	this.update = (function(world){
+	this.update = (function(){
 		var vel = 1.5
 		var dx = world.player.x-this.x;
 		var dy = world.player.y-this.y;

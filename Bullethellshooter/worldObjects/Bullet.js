@@ -1,5 +1,5 @@
-function Bullet(ax,ay,atx,aty){
-    Entitity.call(this)
+function Bullet(aworld,ax,ay,atx,aty){
+    Entitity.call(this,aworld)
 	
 	this.tx = atx;
 	this.ty = aty;
@@ -14,15 +14,23 @@ function Bullet(ax,ay,atx,aty){
 	var dx = this.tx - this.x;
 	var dy = this.ty - this.y;
 	var mag = Math.sqrt(dx*dx+dy*dy)+0.0000001;
-	dx *= 1.75/mag;
-	dy *= 1.75/mag;
-	this.xs = dx;
-	this.ys = dy;
+	dx *= 6/mag;
+	dy *= 6/mag;
+	this.xs = dx + 2*Math.random()-1;
+	this.ys = dy + 2*Math.random()-1;
 		
-		
+	this.age = 0;
+	this.superupdate = this.update;
+	this.update = (function(){
+		this.age++;
+		if(this.age>60){
+			this.die();
+		}
+		this.superupdate();
+	}).bind(this);
 	this.draw = (function(ctx){
 		ctx.fillStyle = "green"
 		ctx.fillCircle(this.x,this.y,this.rad);
-	}).bind(this)
-
+	}).bind(this);
+	
 }
