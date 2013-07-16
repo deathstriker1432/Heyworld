@@ -17,12 +17,12 @@ function Bullet(ax,ay,atx,aty){
 	
 	this.superupdate = this.update;
 	this.update = (function(timeDiff){
-		var acc = timeDiff/15;
+		var vel = timeDiff/15;
 		var dx = this.mx - this.rx;
 		var dy = this.my - this.ry;
 		var mag = Math.sqrt(dx*dx+dy*dy)+0.0000001;
-		dx *= acc/mag;
-		dy *= acc/mag;
+		dx *= vel/mag;
+		dy *= vel/mag;
 		this.xs += dx;
 		this.ys += dy;
 		this.superupdate();

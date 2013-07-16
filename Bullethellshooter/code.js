@@ -22,7 +22,7 @@ for(i=0;i<16;i++){
 canvas.addEventListener("mousedown",function(e){
 	mx = e.offsetX;
 	my = e.offsetY;
-	var test = new Bullet(mx,my,world);
+	var test = new Bullet(world.player.x,world.player.y,mx,my);
 	world.addBullet(test);
 });
 canvas.addEventListener("contextmenu",function(e){
