@@ -1,19 +1,29 @@
 function World(){
+    
 	this.eArray = [];
 	this.bArray = [];
 	this.player = new Player();
+    
 	this.addEnemy = (function(x){
 		this.eArray.push(x);
 	}).bind(this);
+    
+    
 	this.takeEnemy = (function(x){
 		//this.eArray.(x);
 	}).bind(this);
+    
+    
 	this.addBullet = (function(y){
 		this.bArray.push(y);
 	}).bind(this);
+    
+    
 	this.takeBullet = (function(y){
 		//this.bArray.(y);
 	}).bind(this);
+    
+    
 	this.update = (function(timeDiff){
 		this.player.update(timeDiff);
 		for(var i = 0;i<this.eArray.length;i++){
@@ -21,12 +31,16 @@ function World(){
 		}
 		
 	}).bind(this);
+    
+    
 	this.draw = (function(ctx){
 		this.player.draw(ctx);
 		for(var i = 0;i<this.eArray.length;i++){
 			this.eArray[i].draw(ctx);
 		}
 	}).bind(this);
+    
+    
 	this.col= (function(){
 		var a;
 		var b;

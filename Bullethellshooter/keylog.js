@@ -1,21 +1,29 @@
+
+
 var __keysDown = [];
+
+
 (function(){
 	for(var i = 0; i<256;i++){
 		__keysDown.push(false);
 	}
 })();
 
+
 window.addEventListener("keydown",function(e){
 	__keysDown[e.keyCode] = true;
-})
+});
+
 
 window.addEventListener("keyup",function(e){
 	__keysDown[e.keyCode] = false;
-})
+});
+
 
 function isKeyDown(kcode){
 	return __keysDown[kcode];
 }
+
 
 var keys = {
 	w:87,
