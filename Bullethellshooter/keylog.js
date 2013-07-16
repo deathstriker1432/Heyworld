@@ -37,3 +37,19 @@ var keys = {
 	down:40,
 	right:39
 }
+var __buttonsDown=[false,false,false,false];
+
+function __mdown(e){
+__buttonsDown[e.button]=true;
+}
+
+function __mup(e){
+__buttonsDown[e.button]=false;
+}
+
+function isButtonDown(button){
+return __buttonsDown[button]==true;
+}
+
+window.addEventListener("mousedown",__mdown);
+window.addEventListener("mouseup",__mup);

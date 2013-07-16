@@ -14,8 +14,8 @@ function Bullet(ax,ay,atx,aty){
 	var dx = this.tx - this.x;
 	var dy = this.ty - this.y;
 	var mag = Math.sqrt(dx*dx+dy*dy)+0.0000001;
-	dx *= 5/mag;
-	dy *= 5/mag;
+	dx *= 1.75/mag;
+	dy *= 1.75/mag;
 	this.xs = dx;
 	this.ys = dy;
 		

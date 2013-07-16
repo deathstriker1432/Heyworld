@@ -1,4 +1,5 @@
-function Entitity(){
+function Entitity(aworld){
+	this.world = aworld
     this.x = 0;
 	this.y = 0;
 	this.xs = 0;
@@ -11,7 +12,7 @@ function Entitity(){
 		ctx.fillRect(this.x-10,this.y-10,20,20)
 	}).bind(this)
 	
-	this.update = (function(timeDiff){
+	this.update = (function(){
 		this.x += this.xs;
 		this.y += this.ys;
 		
@@ -19,5 +20,7 @@ function Entitity(){
 		this.ys *= this.frict;
 	
 	}).bind(this)
-	
+	this.die = (function(){
+		world.removeEntity(this);
+	}).bind(this);
 }
